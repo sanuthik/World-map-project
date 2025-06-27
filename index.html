@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive World Map</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="map-container">
+    <svg id="world-map" viewBox="0 0 2000 1001">
+      <a href="italy.html"><path class="country" d="M1040,520 L1050,530 L1060,520 Z"><title>Italy</title></path></a>
+      <a href="japan.html"><path class="country" d="M1500,400 L1510,410 L1520,400 Z"><title>Japan</title></path></a>
+      <a href="france.html"><path class="country" d="M1000,500 L1010,510 L1020,500 Z"><title>France</title></path></a>
+    </svg>
+    <div id="hover-button" class="hidden">Explore</div>
+  </div>
+
+  <script>
+    const countries = document.querySelectorAll('.country');
+    const hoverButton = document.getElementById('hover-button');
+
+    countries.forEach(country => {
+      country.addEventListener('mouseenter', () => {
+        const title = country.querySelector('title');
+        const countryName = title ? title.textContent : "This Country";
+        hoverButton.textContent = `Explore ${countryName}`;
+        hoverButton.classList.remove('hidden');
+
+        const rect = country.getBoundingClientRect();
+        hoverButton.style.top = `${rect.top + window.scrollY - 30}px`;
+        hoverButton.style.left = `${rect.left + window.scrollX + 10}px`;
+      });
+
+      country.addEventListener('mouseleave', () => {
+        hoverButton.classList.add('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
