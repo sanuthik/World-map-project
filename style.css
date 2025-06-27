@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: 'Arial Rounded MT Bold', sans-serif;
+  background: #f7fff5;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+svg {
+  width: 100%;
+  height: auto;
+  fill: #b2dfdb;
+  stroke: #fff;
+  stroke-width: 0.5;
+}
+
+.country:hover {
+  fill: #a5d6a7;
+  cursor: pointer;
+}
+
+#hover-button {
+  position: absolute;
+  background: #fff8dc;
+  color: #33691e;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: opacity 0.3s ease;
+  z-index: 999;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
